@@ -24,7 +24,7 @@ pipeline{
    stage("Repo_clone"){
        //Clone repo from GitHub
       steps {
-         checkout ([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: 'jenkins_id', url: 'git@github.com:shubh9975/pipeline.git']]])
+         checkout ([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: 'instance_id', url: 'git@github.com:shubh9975/pipeline.git']]])
 
 }
 }
@@ -32,6 +32,7 @@ pipeline{
    stage("create_instance"){
       //createing instance using terraform
       steps{
+      
        resource "aws_instance" "web" {
          ami= "ami-09052aa9bc337c78d"
          instance_type = "t2.micro"
@@ -71,7 +72,7 @@ pipeline{
  
    stage("terraform_apply"){
     //terraform apply
-     stapes{
+     steps{
       script{
        sh"terraform apply"
 }
