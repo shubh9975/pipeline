@@ -29,6 +29,15 @@ pipeline{
 }
 }
    
+   stage("static_analysis"){
+     //static analysis
+      steps{
+       script{
+       sh "terraform validate"
+}
+}
+}   
+   
    stage("create_instance"){
       //createing instance using terraform
       steps{
@@ -45,14 +54,7 @@ pipeline{
 }
 }
 
-   stage("static_analysis"){
-     //static analysis
-      steps{
-       script{
-       sh "terraform validate"
-}
-}
-}   
+   
    stage("terraform_init"){
      //terraform init
      steps{
