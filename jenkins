@@ -63,7 +63,7 @@ pipeline{
      //terraform plan
       steps{
        script{
-        sh "terraform plan -auto-aprove"
+        sh "terraform plan -auto-approve"
 }
 }
 }
