@@ -1,5 +1,5 @@
 provider "aws" {
-        profile = "test" 
+        profile = "jenkins" 
         region = "ap-south-1"
 }
 
