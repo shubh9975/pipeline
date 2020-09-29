@@ -29,7 +29,7 @@ pipeline{
      //terraform init
      steps{
       script{
-       sh "bash bash.sh"
+       sh "bash plugins.sh"
 }
 }
 }
