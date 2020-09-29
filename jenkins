@@ -61,7 +61,7 @@ stage("create_instance"){
      //terraform plan
       steps{
        script{
-        sh "terraform plan -auto-approve"
+        sh "terraform plan "
 }
 }
 }
