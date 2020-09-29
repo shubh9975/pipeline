@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filename=.terraform
+filename="infra/.terraform"
 
 if [ -d $filename ]
 then
