@@ -53,6 +53,7 @@ pipeline{
       steps{
         script{
           sh "cd infra"
+	 
 }
 }
 }
@@ -62,7 +63,7 @@ pipeline{
      //terraform plan
       steps{
        script{
-        sh "terraform plan"
+        sh "terraform plan -auto-aprove"
 }
 }
 }
@@ -71,7 +72,7 @@ pipeline{
     //terraform apply
      steps{
       script{
-       sh "terraform apply"
+       sh "terraform apply -auto-approve"
 }
 }
 }
