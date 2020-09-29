@@ -29,6 +29,15 @@ pipeline{
 }
 }
 
+
+stage("create_instance"){
+      //createing instance using terraform
+      steps{
+        script{
+          sh "cd infra"
+}
+}
+}
    stage("terraform_init"){
      //terraform init
      steps{
@@ -48,22 +57,11 @@ pipeline{
 }
 }   
    
-   stage("create_instance"){
-      //createing instance using terraform
-      steps{
-        script{
-          sh "cd infra"
-	 
-}
-}
-}
-
-   
    stage("terraform_plan"){
      //terraform plan
       steps{
        script{
-        sh "terraform plan -auto-approve"
+        sh "terraform plan"
 }
 }
 }
