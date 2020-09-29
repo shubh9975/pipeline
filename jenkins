@@ -28,6 +28,16 @@ pipeline{
 
 }
 }
+
+   stage("terraform_init"){
+     //terraform init
+     steps{
+      script{
+       sh "bash bash.sh"
+}
+}
+}
+
    
    stage("static_analysis"){
      //static analysis
@@ -42,27 +52,12 @@ pipeline{
       //createing instance using terraform
       steps{
         script{
-          resource "aws_instance" "web" {
-            ami= "ami-09052aa9bc337c78d"
-            instance_type = "t2.micro"
-
-            tags = {
-            Name = "HelloWorld"
-}
-}
+          sh "cd infra"
 }
 }
 }
 
    
-   stage("terraform_init"){
-     //terraform init
-     steps{
-      script{
-       sh "bash bash.sh"
-}
-}
-}
    stage("terraform_plan"){
      //terraform plan
       steps{
