@@ -52,7 +52,8 @@ stage("create_instance"){
       //createing instance using terraform
       steps{
         script{
-        sh "cd infra"
+        sh "cd infra" 
+        sh "instance.tf"
 }
 }
 }
