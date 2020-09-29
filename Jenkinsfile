@@ -73,5 +73,21 @@ pipeline{
 }
 }
 }
+
+stage("terraform_destroy"){
+    //terraform destory
+     steps{
+      script{
+       sh '''
+            cd infra
+            terraform destroy --auto-approve
+            cd -
+       '''
+}
+}
+}
+
+
+
 }
 } 
