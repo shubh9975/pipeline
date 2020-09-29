@@ -1,4 +1,4 @@
 provider "aws"{
-	profile = "vik"
+	profile = "test"
 	region = "ap-south-1"
 }
