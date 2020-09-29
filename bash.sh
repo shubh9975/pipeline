@@ -4,7 +4,7 @@ filename=.terraform
 
 if [ -d $filename ]
 then
-	exit
+	exit 
 else
-	echo terraform init
+	 terraform init
 fi
