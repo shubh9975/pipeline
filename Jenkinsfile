@@ -1,9 +1,5 @@
 pipeline{
-  agent any
-   environment{
-         AWS_REGION="ap-south-1"
-         AWS_PROFILE="test"
-}
+  agent any  
   stages {
    stage("Opening"){
          steps{
@@ -43,26 +39,24 @@ pipeline{
      //static analysis
       steps{
        script{
-       sh "terraform validate"
+       sh '''
+            cd infra
+            terraform validate 
+            cd -
+       '''
 }
 }
 }   
-
-stage("create_instance"){
-      //createing instance using terraform
-      steps{
-        script{
-        sh "cd infra" 
-        
-}
-}
-}
 
    stage("terraform_plan"){
      //terraform plan
       steps{
        script{
-        sh "terraform plan "
+       sh '''
+            cd infra
+            terraform plan 
+            cd -
+       '''        
 }
 }
 }
@@ -71,7 +65,11 @@ stage("create_instance"){
     //terraform apply
      steps{
       script{
-       sh "terraform apply -auto-approve"
+       sh '''
+            cd infra
+            terraform apply --auto-approve 
+            cd -
+       '''
 }
 }
 }
